@@ -7,17 +7,17 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        {siteConfig.tagline.split("\n").map((ln, idx) => <p id={idx} className="hero__subtitle">{ln}</p>)}
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Working with HammerAnimations
+            Getting Started
           </Link>
         </div>
       </div>
@@ -26,14 +26,16 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <img src="img/banner.webp" alt='HamerAnimations banner'></img>
+        <center>
+          <img src="img/banner.webp" alt='Art of Zeitheron' />
+        </center>
       </main>
     </Layout>
   );

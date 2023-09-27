@@ -1,18 +1,20 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Getting Started
 
-:::tip Getting familiar with geometry and animations
-Go grab yourself the [Blockbench](https://www.blockbench.net/) app and play around with it.
-
-This mod relies on Bedrock geometry and animation format, which is easy to do in Blockbench.
-
-The model type you are looking for is **Bedrock Entity**.
+:::tip Get familiar with Java, Gradle, Minecraft & Forge APIs
+Before starting on using Hammer-mods, you should have basic knowledge on Java language, Gradle framework, Minecraft API and NeoForge API.
+Without them, it will be much harder to develop.
 :::
 
-Before using **Hammer Animations**, you should firstly add it to your workspace!
+Before using **anything here**, you should firstly add **HammerLib** to your workspace!
+
+:::tip Or use the prepared mod template!
+You can use [this template](https://github.com/Zeitheron/NeoForgedModTemplate) for setting up workspace.
+Just select the branch that corresponds with the version that you want to develop, and use it as a template
+:::
 
 ## 1.19.2 and Above
 
@@ -36,12 +38,11 @@ In here you are going to add two dependencies:
 
 ```groovy
 dependencies {
-    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.63")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.14")
+    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.73")
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.63` with latest HammerLib version for given version, and `19.2.14` with the latest HammerAnimations version.**
+**Make sure to replace the `1.19.2` with your game version, `19.3.73` with latest HammerLib version for given game version.**
 
 After this, refresh your project in IDE of your choice.
 
@@ -50,7 +51,7 @@ You should see HammerLib and HammerAnimations appear in your classpath.
 ## 1.12.2
 
 :::danger Warning!
-While 1.12.2 is very ancient version, HammerAnimations was built for 1.12.2 to support TerrariaCraft project.
+While 1.12.2 is very ancient version, HammerLib was built for 1.12.2 to support TerrariaCraft project.
 :::
 
 **Before proceeding**, make sure you are using `stable_39` MCP mappings. This is **very** important, and ignoring this is going to crash your game.
@@ -73,10 +74,9 @@ In here you are going to add two dependencies:
 ```groovy
 dependencies {
     deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:2.0.6.37"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.14"
 }
 ```
 
 After this, run `gradle setupDecompWorkspace idea` for IntelliJ IDEA or `gradle setupDecompWorkspace eclipse` for Eclipse IDE.
 
-You should see HammerLib and HammerAnimations appear in your classpath.
+You should see HammerLib appear in your classpath.

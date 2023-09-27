@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Docs for Zeith\'s mods.',
-  tagline: 'Gettings started with HammerSeries framework (and other mod APIs)',
+  tagline: 'Gettings started with HammerSeries framework (and other mod APIs)\nIf you\'re not scared by the furry, of course.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -55,7 +55,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/banner.webp',
       navbar: {
-        title: 'HammerAnimations',
+        title: 'HammerSeries',
         logo: {
           alt: 'Logo',
           src: 'img/logo.webp',
@@ -65,7 +65,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Modding Docs',
           },
           {
             href: 'https://github.com/dragon-forge',
@@ -81,8 +81,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'HammerLib',
+                to: '/docs/hammerlib/intro',
+              },
+              {
+                label: 'HammerAnimations',
+                to: '/docs/hammeranims/intro',
               },
             ],
           },
@@ -112,7 +116,7 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/dragon-forge/HammerAnimations',
+                href: 'https://github.com/dragon-forge',
               },
             ],
           },
