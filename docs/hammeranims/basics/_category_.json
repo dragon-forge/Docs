@@ -1,0 +1,8 @@
+{
+  "label": "Basics",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Some basic knowledge on loading and rendering models, applying animations etc."
+  }
+}
