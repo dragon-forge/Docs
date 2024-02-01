@@ -1,0 +1,8 @@
+{
+  "label": "HammerLib Advanced",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "More advanced topics that HammerLib simplifies."
+  }
+}
