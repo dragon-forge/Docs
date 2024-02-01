@@ -36,12 +36,12 @@ In here you are going to add two dependencies:
 
 ```groovy
 dependencies {
-    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.73")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.14")
+    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.76")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.21")
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.73` with latest HammerLib version for given version, and `19.2.14` with the latest HammerAnimations version.**
+**Make sure to replace the `1.19.2` with your game version, `19.3.76` with latest HammerLib version for given version, and `19.2.21` with the latest HammerAnimations version.**
 
 After this, refresh your project in IDE of your choice.
 
@@ -72,8 +72,8 @@ In here you are going to add two dependencies:
 
 ```groovy
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:2.0.6.37"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.14"
+    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.3.39"
+    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.21"
 }
 ```
 
