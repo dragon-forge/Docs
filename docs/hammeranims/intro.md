@@ -72,7 +72,7 @@ In here you are going to add two dependencies:
 
 ```groovy
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.3.39"
+    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.47"
     deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.21"
 }
 ```
