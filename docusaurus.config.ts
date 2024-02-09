@@ -123,7 +123,7 @@ const config: Config = {
         copyright: `Copyright © ${new Date().getFullYear()} Zeitheron. Built with Docusaurus.`,
       },
       prism: {
-        additionalLanguages: ['java', 'toml', 'json', 'groovy', 'properties'],
+        additionalLanguages: ['java', 'toml', 'json', 'gradle', 'groovy', 'properties'],
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },

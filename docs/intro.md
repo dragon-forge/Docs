@@ -21,7 +21,7 @@ Just select the branch that corresponds with the version that you want to develo
 Firstly, add my repository to your workspace.
 The `repositories` block should already be present in your `build.gradle`
 
-```groovy
+```gradle
 repositories {
     maven {
         name = "Zeitheron Maven"
@@ -36,7 +36,7 @@ repositories {
 After adding the repository, navigate to `dependencies` closure.
 In here you are going to add two dependencies:
 
-```groovy
+```gradle
 dependencies {
     implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.76")
 }
@@ -59,7 +59,7 @@ While 1.12.2 is very ancient version, HammerLib was built for 1.12.2 to support 
 After that is ensured, add my repository to your workspace.
 The `repositories` block should already be present in your `build.gradle`
 
-```groovy
+```gradle
 repositories {
     maven {
         name = "Zeitheron Maven"
@@ -71,7 +71,7 @@ repositories {
 After adding the repository, navigate to `dependencies` closure.
 In here you are going to add two dependencies:
 
-```groovy
+```gradle
 dependencies {
     deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.47"
 }
