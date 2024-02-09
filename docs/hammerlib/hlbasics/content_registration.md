@@ -180,7 +180,7 @@ HammerLib offers built-in tiles for two use cases:
 - Ticking block entity - `TileSyncableTickable`
   - :::info This will require a ticker method inside your `Block` class. 
   ```java
- @Nullable
+	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
 	{
@@ -188,7 +188,7 @@ HammerLib offers built-in tiles for two use cases:
 	}
   ```
 
-To create BlockEntityType<?>, use `BlockAPI` from package `org.zeith.hammerlib.api.forge`.
+To create BlockEntityType\<?>, use `BlockAPI` from package `org.zeith.hammerlib.api.forge`.
 
 You will be using `BlockAPI.createBlockEntityType(DynamicBlockEntitySupplier<T> generator, Block... blocks)` method.
 
@@ -202,7 +202,7 @@ Some vanilla client-side rendering registration may be simplified using annotati
 You must be using annotation-based registration system (`@SimplyRegister`) for these features to work.
 :::
 
-### BlockEntityType<?>
+### BlockEntityType\<?>
 
 To add renderer to your BlockEntity, add `@TileRenderer(RenderModTile.class)` annotation.
 
@@ -230,7 +230,7 @@ Your `RenderExampleTile` from the example above should implement `BlockEntityRen
 - no-args constructor (`public RenderExampleTile() {}`)
 - 1-parameter constructor (`public RenderExampleTile(BlockEntityRendererProvider.Context ctx) {}`)
 
-### ParticleType<?>
+### ParticleType\<?>
 
 ```java
 package com.yourname.yourmod.init;

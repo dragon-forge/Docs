@@ -1,11 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'Docs for Zeith\'s mods.',
   tagline: 'Gettings started with HammerSeries framework (and other mod APIs)\nIf you\'re not scared by the furry, of course.',
   favicon: 'img/favicon.ico',
@@ -124,8 +123,9 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Zeitheron. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        additionalLanguages: ['java', 'toml', 'json', 'groovy', 'properties'],
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
     }),
 };

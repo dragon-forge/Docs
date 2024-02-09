@@ -21,6 +21,7 @@ Add this piece of code to your `mods.toml`:
     ordering="NONE"
     side="BOTH"
 ```
+
 Be sure to replace the `19.3.76` with the actual minimal version you require to run your mod.
 
 ### public Mod() *(your mod constructor)*

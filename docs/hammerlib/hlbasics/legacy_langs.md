@@ -49,7 +49,7 @@ To add comments inside .lang files, simply put hashtag (`#`) as the start of you
 :::
 
 Here's an example of a `en_us.lang` file:
-```
+```properties
 # Creative Tabs
 itemGroup.yourmod=Your Mod
 
