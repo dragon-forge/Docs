@@ -103,7 +103,7 @@ As of HammerLib 19.3.76 (1.19.2), the list of supported objects are:
 - int[]
 - long[]
 - BlockPos
-- BLockState
+- BlockState
 - Component
 - FluidStack
 - GlobalPos
