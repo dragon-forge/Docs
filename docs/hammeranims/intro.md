@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Getting Started
@@ -37,7 +37,7 @@ In here you are going to add two dependencies:
 ```gradle
 dependencies {
     implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.76")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.21")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.22")
 }
 ```
 
@@ -72,11 +72,42 @@ In here you are going to add two dependencies:
 
 ```gradle
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.47"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.21"
+    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.49"
+    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.22:deobf"
 }
 ```
 
 After this, run `gradle setupDecompWorkspace idea` for IntelliJ IDEA or `gradle setupDecompWorkspace eclipse` for Eclipse IDE.
 
 You should see HammerLib and HammerAnimations appear in your classpath.
+
+## 1.12.2 ForgeGradle 3+
+
+When using newer ForgeGradle, you can use the `fg.deobf()` feature, but it may or may not work.
+This does allow using other mappings, but modern FG doesn't like 1.12.2 much, so your success is luck-based.
+HammerLib currently is not provided in its compiled artifact, you might need to use CurseForge maven.
+
+Learn more about [Curse Maven here](https://www.cursemaven.com/).
+
+As always, add my repository to your workspace.
+The `repositories` block should already be present in your `build.gradle`
+
+```gradle
+repositories {
+    maven {
+        name = "Zeitheron Maven"
+        url = "https://maven.zeith.org"
+    }
+}
+```
+
+After adding the repository, navigate to `dependencies` closure.
+In here you are going to add two dependencies:
+
+```gradle
+dependencies {
+    // implementation "org.zeith.HammerLib:HammerLib-1.12.2:12.2.49" // this is remapped already to stable_39.
+    implementation fg.deobf("curse.maven:hammer-lib-247401:5115160") // this is not remmaped, and fg.deobf will do that
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.22")
+}
+```

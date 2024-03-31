@@ -1,0 +1,8 @@
+{
+  "label": "🍃 Animations",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Registration and usage of animations and animation systems. This category is meant to explain how animations are registered, where they are stored, and how they should be applied."
+  }
+}

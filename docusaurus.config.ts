@@ -52,7 +52,7 @@ const config: Config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/banner.webp',
+      image: 'https://ref.zeith.org/images/species/main.webp',
       navbar: {
         title: 'HammerSeries',
         logo: {

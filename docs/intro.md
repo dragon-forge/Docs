@@ -51,7 +51,7 @@ You should see HammerLib and HammerAnimations appear in your classpath.
 ## 1.12.2
 
 :::danger Warning!
-While 1.12.2 is very ancient version, HammerLib was built for 1.12.2 to support TerrariaCraft project.
+While 1.12.2 is very ancient version, HammerLib was built and is still being mainteined for 1.12.2 to support [TerrariaCraft](https://terrariacraft.com) project.
 :::
 
 **Before proceeding**, make sure you are using `stable_39` MCP mappings. This is **very** important, and ignoring this is going to crash your game.
@@ -73,10 +73,14 @@ In here you are going to add two dependencies:
 
 ```gradle
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.47"
+    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.49"
 }
 ```
 
 After this, run `gradle setupDecompWorkspace idea` for IntelliJ IDEA or `gradle setupDecompWorkspace eclipse` for Eclipse IDE.
 
 You should see HammerLib appear in your classpath.
+
+:::info
+Some features from these tutorials may not be available on 1.12.2, but a loto of them should be there.
+:::
