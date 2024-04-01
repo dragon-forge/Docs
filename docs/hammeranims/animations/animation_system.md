@@ -157,7 +157,7 @@ public class MyTile
 }
 ```
 :::tip
-`TileSyncableTickable` and `TileSyncable` both use [NBTSerializationHelper](/docs/hammerlib/hladvanced/nbt_serialization) for reading&writing data.
+`TileSyncableTickable` and `TileSyncable` both use [NBTSerializationHelper](/docs/hammerlib/advanced/nbt_serialization) for reading&writing data.
 
 Instead of writing `saveAdditional(CompoundTag nbt)` and `load(CompoundTag nbt)` methods, you can put an annotation onto the animation system field:
 ```java
