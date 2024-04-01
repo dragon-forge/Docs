@@ -1,7 +1,9 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
+title: ☁️ Getting Started
 ---
 
+![The introduction to adding HammerLib to your workspace.](https://assets.zeith.org/logos/hammer-lib.png)
 # Getting Started
 
 :::danger Warning!

@@ -1,7 +1,9 @@
 ---
 sidebar_position: 0
+title: ☁️ Getting Started
 ---
 
+![The introduction to adding HammerAnimations to your workspace.](https://assets.zeith.org/logos/hammer-animations.png)
 # Getting Started
 
 :::tip Getting familiar with geometry and animations
@@ -12,7 +14,7 @@ This mod relies on Bedrock geometry and animation format, which is easy to do in
 The model type you are looking for is **Bedrock Entity**.
 :::
 
-Before using **Hammer Animations**, you should firstly add it to your workspace!
+Before using **HammerAnimations**, you should firstly add it to your workspace!
 
 ## 1.19.2 and Above
 
@@ -41,11 +43,24 @@ dependencies {
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.76` with latest HammerLib version for given version, and `19.2.21` with the latest HammerAnimations version.**
+**Make sure to replace the `1.19.2` with your game version, `19.3.76` with latest HammerLib version for given version, and `19.2.22` with the latest HammerAnimations version.**
 
 After this, refresh your project in IDE of your choice.
 
 You should see HammerLib and HammerAnimations appear in your classpath.
+
+### mods.toml
+Add this piece of code to your `mods.toml`:
+```toml
+[[dependencies.mod_id]]
+    modId="hammeranims"
+    mandatory=true
+    versionRange="[19.2.22,)"
+    ordering="NONE"
+    side="BOTH"
+```
+
+Be sure to replace the `19.2.22` with the actual minimal version you require to run your mod.
 
 ## 1.12.2
 

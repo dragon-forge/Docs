@@ -83,11 +83,11 @@ import org.zeith.hammerlib.annotations.*;
 @SimplyRegister
 public interface ModAnimations
 {
-	@RegistryName("your_animation")
-	IAnimationContainer YOUR_ANIMATION = IAnimationContainer.create();
-	
-	AnimationHolder YOUR_ANIMATION_IDLE = YOUR_ANIMATION.holder("idle");
-	AnimationHolder YOUR_ANIMATION_WALK = YOUR_ANIMATION.holder("walk");
+    @RegistryName("your_animation")
+    IAnimationContainer YOUR_ANIMATION = IAnimationContainer.create();
+    
+    AnimationHolder YOUR_ANIMATION_IDLE = YOUR_ANIMATION.holder("idle");
+    AnimationHolder YOUR_ANIMATION_WALK = YOUR_ANIMATION.holder("walk");
 }
 ```
 

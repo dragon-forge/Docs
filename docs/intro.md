@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Getting Started
+# 👋 Introduction to HammerSeries
 
 :::tip Get familiar with Java, Gradle, Minecraft & Forge APIs
 Before starting on using Hammer-mods, you should have basic knowledge on Java language, Gradle framework, Minecraft API and NeoForge API.
@@ -82,5 +82,5 @@ After this, run `gradle setupDecompWorkspace idea` for IntelliJ IDEA or `gradle 
 You should see HammerLib appear in your classpath.
 
 :::info
-Some features from these tutorials may not be available on 1.12.2, but a loto of them should be there.
+Some features from these tutorials may not be available on 1.12.2, but a lot of them should be there.
 :::

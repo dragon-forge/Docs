@@ -1,0 +1,8 @@
+{
+  "label": "📦 Essential Knowledge",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Basic and common knowledge you are going to need to work with HammerMultipart."
+  }
+}

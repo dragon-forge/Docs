@@ -16,6 +16,9 @@ HammerAnimations provides you with two presets to use:
 - `IAnimatedEntity` for entities with animation system
 - `IAnimatedTile` for block entities (or tile entities) with animation system
 Implementing your own object type does mean that you're going to need to register `IObjectSource` from HammerLib.
+:::info
+If you're using HammerMultipart, there is `PartSourceType` provide `IObjectSource<PartEntity>` using `PartSourceType.of(PartEntity part)` method.
+:::
 
 Any animation system has one or more animation layers inside it, used to play and update animations.
 
@@ -36,8 +39,8 @@ In our example we are using `TileSyncableTickable` as base, so we're going to ad
 @Override
 public void update()
 {
-	super.update();
-	animations.tick();
+    super.update();
+    animations.tick();
 }
 ```
 
@@ -85,10 +88,10 @@ Here is an example of animation system which has unsynced ambient layer, as well
 @Override
 public void setupSystem(AnimationSystem.Builder builder)
 {
-	builder.addLayers(
-		AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
-		AnimationLayer.builder(CommonLayerNames.ACTION)
-	).autoSync();
+    builder.addLayers(
+        AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
+        AnimationLayer.builder(CommonLayerNames.ACTION)
+    ).autoSync();
 }
 ```
 
@@ -106,51 +109,51 @@ import org.zeith.hammeranims.api.tile.IAnimatedTile;
 import org.zeith.hammerlib.tiles.*;
 
 public class MyTile
-		extends TileSyncableTickable
-		implements IAnimatedTile
+        extends TileSyncableTickable
+        implements IAnimatedTile
 {
-	protected final AnimationSystem animations = AnimationSystem.create(this);
-	
-	public MyTile(BlockEntityType<?> type, BlockPos pos, BlockState state)
-	{
-		super(type, pos, state);
-	}
-	
-	@Override
-	public void update()
-	{
-		super.update();
-		animations.tick();
-	}
-	
-	@Override
-	public void setupSystem(AnimationSystem.Builder builder)
-	{
-		builder.addLayers(
-				AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
-				AnimationLayer.builder(CommonLayerNames.ACTION)
-		).autoSync();
-	}
-	
-	@Override
-	public AnimationSystem getAnimationSystem()
-	{
-		return animations;
-	}
-	
-	@Override
-	public void saveAdditional(CompoundTag nbt)
-	{
-		super.saveAdditional(nbt);
-		nbt.put("Animations", animations.serializeNBT());
-	}
-	
-	@Override
-	public void load(CompoundTag nbt)
-	{
-		super.load(nbt);
-		animations.deserializeNBT(nbt.getCompound("Animations"));
-	}
+    protected final AnimationSystem animations = AnimationSystem.create(this);
+    
+    public MyTile(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    {
+        super(type, pos, state);
+    }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+        animations.tick();
+    }
+    
+    @Override
+    public void setupSystem(AnimationSystem.Builder builder)
+    {
+        builder.addLayers(
+                AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
+                AnimationLayer.builder(CommonLayerNames.ACTION)
+        ).autoSync();
+    }
+    
+    @Override
+    public AnimationSystem getAnimationSystem()
+    {
+        return animations;
+    }
+    
+    @Override
+    public void saveAdditional(CompoundTag nbt)
+    {
+        super.saveAdditional(nbt);
+        nbt.put("Animations", animations.serializeNBT());
+    }
+    
+    @Override
+    public void load(CompoundTag nbt)
+    {
+        super.load(nbt);
+        animations.deserializeNBT(nbt.getCompound("Animations"));
+    }
 }
 ```
 :::tip

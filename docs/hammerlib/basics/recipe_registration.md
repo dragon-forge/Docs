@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Recipe Registration
+# 🍰 Recipe Registration
 Let's take a look at registering recipes through HammerLib.
 
 Minecraft provides a datapack way of adding recipes through JSON.
@@ -10,7 +10,7 @@ However, it is quite annoying to work with, having each recipe its own file, and
 
 This is where HammerLib shines: it allows developers to register recipes, at runtime (meaning you can take configs into consideration), of any type through code!
 
-## The process
+## ☕ The process
 
 Create a class, and make it implement `IRecipeProvider` from `org.zeith.hammerlib.api.IRecipeProvider`.
 Annotate your interface with `@ProvideRecipes` from `org.zeith.hammerlib.annotations.ProvideRecipes`.
@@ -29,19 +29,19 @@ import org.zeith.hammerlib.event.recipe.RegisterRecipesEvent;
 
 @ProvideRecipes
 public class ModRecipes
-		implements IRecipeProvider
+        implements IRecipeProvider
 {
-	@Override
-	public void provideRecipes(RegisterRecipesEvent event)
-	{
-		// TODO: Register recipes!
+    @Override
+    public void provideRecipes(RegisterRecipesEvent event)
+    {
+        // TODO: Register recipes!
 
-		event.shaped() // here's an example of adding a recipe!
-				.result(Items.CHAINMAIL_CHESTPLATE)
-				.shape("n n", "nnn", "nnn")
-				.map('n', Tags.Items.NUGGETS_IRON)
-				.register();
-	}
+        event.shaped() // here's an example of adding a recipe!
+                .result(Items.CHAINMAIL_CHESTPLATE)
+                .shape("n n", "nnn", "nnn")
+                .map('n', Tags.Items.NUGGETS_IRON)
+                .register();
+    }
 }
 ```
 

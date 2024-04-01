@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Zero-code NBT serialization
+# 🌳 Zero-code NBT serialization
 
 HammerLib offers easy to use, annotation-based NBT serialization mechanism.
 The easiest way to get started with it is implementing your object with `IAutoNBTSerializable`.
@@ -22,7 +22,7 @@ public interface IAutoNBTSerializable extends INBTSerializable<CompoundTag>
 
 As you can see, this interface defaults both serialization methods into `NBTSerializationHelper`. Technically you can use those same methods in your code, if `IAutoNBTSerializable` is not an option.
 
-## Mechanism
+## ⚙️ Mechanism
 The serializer goes over all `@NBTSerializable`-annotated fields in an instance, and attempts to serialize each field.
 :::tip
 The serialized name is going to be the same as the field name itself.
@@ -37,7 +37,7 @@ The field may be serialized on one of these conditions:
 
 A NBT tag compound will be created, storing each named field inside it, storing its respective tag type.
 
-### `INBTSerializer<T>`
+### 🔧 `INBTSerializer<T>`
 
 To put it simply, this interface allows reading of complex objects to and from NBT, creating a new instance when reading.
 
@@ -95,7 +95,7 @@ public class ItemStackSerializer
 }
 ```
 
-### Out-of-box serializers
+### 📦 Out-of-box serializers
 HammerLib provides a wide support of Minecraft's objects to be serialized.
 As of HammerLib 19.3.76 (1.19.2), the list of supported objects are:
 - All Java primitive types (both primitive and wrapped) (both `int` and `Integer`)
@@ -117,10 +117,10 @@ As of HammerLib 19.3.76 (1.19.2), the list of supported objects are:
 - Vec3
 - Vector3d
 
-### Null support?
+### ⁉️ Null support?
 - All OOB serializers are compatible with null values and should work effortlessly.
 
-## Example
+## ☕ Example
 Let's contextualize this knowledge and provide a meaningful example!
 
 ```java

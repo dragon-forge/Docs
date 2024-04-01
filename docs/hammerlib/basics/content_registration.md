@@ -2,12 +2,12 @@
 sidebar_position: 0
 ---
 
-# Content Registration
+# 📝 Content Registration
 Here we go over how to registar stuff with HammerLib.
 
 In order to register your objects into the game, HammerLib offers annotation-based solution.
 
-## Peparations
+## ❗ Peparations
 
 Start by creating an `interface` class, which will store your objects-of-choice.
 This objects may be anything that needs to be registered into IForgeRegistries (or vanilla regitries)
@@ -42,7 +42,7 @@ public interface ModBlocks
 }
 ```
 
-### Adding contents
+### 🆕 Adding contents
 
 Adding new things is as simple as adding a variable of given type, and annotating it with `@RegistryName("name")`.
 The "name" must be unique value.
@@ -60,7 +60,7 @@ public interface ModBlocks
 }
 ```
 
-### @OnlyIf
+### ❔ @OnlyIf
 
 Some registries are considered "intrusive", which means that as soon as you create an instance of registry entry, you must register it, or the game is going to crash.
 
@@ -93,7 +93,7 @@ public interface ModBlocks
 }
 ```
 
-### Custom registrars
+### 🪣 Custom registrars
 
 For more complex solutions (like fluids) which require more than one object to be registered (into multiple registries), you should create a class that implements `ICustomRegistrar` from package `org.zeith.hammerlib.api.fml`.
 
@@ -111,7 +111,7 @@ You should put the custom registrars as any other registry object inside your co
 
 HammerLib has an example of such implementation, being `org.zeith.hammerlib.api.fluid.FluidFactory`.
 
-### Fluid registration
+### 🌊 Fluid registration
 
 `FluidFactory` is what HammerLib offers to regiter fluids, alongside their bucket item, fluid block, fluid type, still & flowing fluids. (Basically a lot of things packed in one!)
 
@@ -133,59 +133,59 @@ import org.zeith.hammerlib.proxy.HLConstants;
 @SimplyRegister
 public interface ModFluids
 {
-	@RegistryName("water")
-	FluidFactory WATER = FluidFactory.builder(FluidType.Properties.create()
-					.canSwim(true)
-					.canDrown(true)
-					.canConvertToSource(true)
-					.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
-					.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
-					.sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
-			)
-			.withBlock()
-			.withBucket()
-			.addToTab(HLConstants.HL_TAB)
-			.propertyModifier(p -> p.levelDecreasePerBlock(2))
-			.build();
+    @RegistryName("water")
+    FluidFactory WATER = FluidFactory.builder(FluidType.Properties.create()
+                    .canSwim(true)
+                    .canDrown(true)
+                    .canConvertToSource(true)
+                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+            )
+            .withBlock()
+            .withBucket()
+            .addToTab(HLConstants.HL_TAB)
+            .propertyModifier(p -> p.levelDecreasePerBlock(2))
+            .build();
 }
 ```
 
-## Special treatment for Blocks
+## 🧱 Special treatment for Blocks
 
 Blocks are special in a way that they have their Items.
 HammerLib automagically registers a default `BlockItem` for every `Block`.
 
 There are three interfaces for a custom `Block` class that may alter what/how `BlockItem` will be registered.
 
-### Adding default `BlockItem` to creative tab
+### 🔧 Adding default `BlockItem` to creative tab
 To add default instance of `BlockItem` to a creative tab, you should implement `ICreativeTabBlock` from package `org.zeith.hammerlib.api.blocks`.
 You will have to implement `getCreativeTab` method, which should return the tab to which the item will be assigned.
 
-### Disabling `BlockItem`
+### ⛔ Disabling `BlockItem`
 To prevent `BlockItem` from being registered altogether, you should implement `INoItemBlock` from package `org.zeith.hammerlib.api.blocks`.
 This behavior would be similar to how Minecraft does not register items for fluids, fire and similar blocks without an item.
 
-### Tweaking default `BlockItem`
+### ⚙️ Tweaking default `BlockItem`
 If you wish to change item properties of a default `BlockItem` implementation, like stack size, you will have implement `IItemPropertySupplier` from package `org.zeith.hammerlib.api.blocks`.
 You will have to implement `createItemProperties` method, which should return the first parameter (`Item.Properties`) back, but modified.
 
-### Custom `BlockItem`
+### 🎲 Custom `BlockItem`
 In order to change what `BlockItem` is going to be created for a given block, you should implement `ICustomBlockItem` from package `org.zeith.hammerlib.api.blocks`.
 You will have to implement `createBlockItem` method, which should return a new `BlockItem` instance bound to the current `Block` instance.
 
-## BlockEntities
+## 🧰 BlockEntities
 
 HammerLib offers built-in tiles for two use cases:
 - Static block entity - `TileSyncable`
 - Ticking block entity - `TileSyncableTickable`
   - :::info This will require a ticker method inside your `Block` class. 
   ```java
-	@Nullable
-	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
-	{
-		return BlockAPI.ticker(pLevel);
-	}
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
+    {
+        return BlockAPI.ticker(pLevel);
+    }
   ```
 
 To create BlockEntityType\<?>, use `BlockAPI` from package `org.zeith.hammerlib.api.forge`.
@@ -194,7 +194,7 @@ You will be using `BlockAPI.createBlockEntityType(DynamicBlockEntitySupplier<T> 
 
 You must add a vanilla constructor into your `BlockEntity`: `public BlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state)`
 
-## Client-side rendering
+## 📷 Client-side rendering
 
 Some vanilla client-side rendering registration may be simplified using annotation-based binding, offered by HammerLib.
 
@@ -202,7 +202,7 @@ Some vanilla client-side rendering registration may be simplified using annotati
 You must be using annotation-based registration system (`@SimplyRegister`) for these features to work.
 :::
 
-### BlockEntityType\<?>
+### 📦 BlockEntityType\<?>
 
 To add renderer to your BlockEntity, add `@TileRenderer(RenderModTile.class)` annotation.
 
@@ -221,8 +221,8 @@ import org.zeith.hammerlib.annotations.client.TileRenderer;
 public interface ModTiles
 {
     @RegistryName("example")
-	@TileRenderer(RenderExampleTile.class)
-	BlockEntityType<TileExample> EXAMPLE_TILE = BlockAPI.createBlockEntityType(TileExample::new, ModBlocks.EXAMPLE_BLOCK);
+    @TileRenderer(RenderExampleTile.class)
+    BlockEntityType<TileExample> EXAMPLE_TILE = BlockAPI.createBlockEntityType(TileExample::new, ModBlocks.EXAMPLE_BLOCK);
 }
 ```
 
@@ -230,7 +230,7 @@ Your `RenderExampleTile` from the example above should implement `BlockEntityRen
 - no-args constructor (`public RenderExampleTile() {}`)
 - 1-parameter constructor (`public RenderExampleTile(BlockEntityRendererProvider.Context ctx) {}`)
 
-### ParticleType\<?>
+### 🎉 ParticleType\<?>
 
 ```java
 package com.yourname.yourmod.init;
@@ -245,26 +245,26 @@ import com.yourname.yourmod.content.particles.ParticleWisp;
 @SimplyRegister
 public interface ParticlesWL
 {
-	@RegistryName("wisp")
-	@Particles(ClientTestParticle.Provider.class)
-	ParticleType<ParticleTest> WISP = create(false, ParticleTest.DESERIALIZER, ParticleTest.CODEC);
-	
-	static SimpleParticleType simple(boolean pOverrideLimiter)
-	{
-		return new SimpleParticleType(pOverrideLimiter);
-	}
-	
-	static <T extends ParticleOptions> ParticleType<T> create(boolean pOverrideLimiter, ParticleOptions.Deserializer<T> pDeserializer, final Codec<T> pCodec)
-	{
-		return new ParticleType<>(pOverrideLimiter, pDeserializer)
-		{
-			@Override
-			public Codec<T> codec()
-			{
-				return pCodec;
-			}
-		};
-	}
+    @RegistryName("wisp")
+    @Particles(ClientTestParticle.Provider.class)
+    ParticleType<ParticleTest> WISP = create(false, ParticleTest.DESERIALIZER, ParticleTest.CODEC);
+    
+    static SimpleParticleType simple(boolean pOverrideLimiter)
+    {
+        return new SimpleParticleType(pOverrideLimiter);
+    }
+    
+    static <T extends ParticleOptions> ParticleType<T> create(boolean pOverrideLimiter, ParticleOptions.Deserializer<T> pDeserializer, final Codec<T> pCodec)
+    {
+        return new ParticleType<>(pOverrideLimiter, pDeserializer)
+        {
+            @Override
+            public Codec<T> codec()
+            {
+                return pCodec;
+            }
+        };
+    }
 }
 ```
 
