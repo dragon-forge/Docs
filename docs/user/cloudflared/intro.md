@@ -21,7 +21,7 @@ When adding a server to the server list (or via direct connection), the address 
 
 Yes, the mod does indeed function on dedicated servers! However, make sure the server cloudflared binaries are downloaded and executed properly.
 
-Otherwise, head to [`📩 Download Cloudflared`](/docs/cloudflared/download) for more detals.
+Otherwise, head to [`📩 Download Cloudflared`](/docs/user/cloudflared/download) for more detals.
 
 ## 🔌 How do I connect to cloudflared-hosted game?
 

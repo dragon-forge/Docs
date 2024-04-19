@@ -87,11 +87,11 @@ const config: Config = {
             items: [
               {
                 label: 'HammerLib',
-                to: '/docs/hammerlib/intro',
+                to: '/docs/api/hammerlib/intro',
               },
               {
                 label: 'HammerAnimations',
-                to: '/docs/hammeranims/intro',
+                to: '/docs/api/hammeranims/intro',
               },
             ],
           },
@@ -122,10 +122,6 @@ const config: Config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/dragon-forge',
-              },
-              {
-                label: 'User Docs',
-                to: '/udocs/',
               },
             ],
           },
