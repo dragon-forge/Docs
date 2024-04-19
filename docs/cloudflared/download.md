@@ -3,27 +3,14 @@ sidebar_position: 1
 title: 📩 Download Cloudflared
 ---
 
-![The introduction to adding HammerLib to your workspace.](https://assets.zeith.org/logos/cloudflared.png)
+![What to do if the cloudflared software is missing...](https://assets.zeith.org/logos/cloudflared.png)
 
-# Downloading Cloudflared software
+## ✨ How does the magic work?
+The mod downloads Cloudflared software (depending on your OS) and stores it inside the game folder to allow use of cloudflared executable.
 
-## Manually
-- You are going to need to download and install [Cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) 
+With this executable all the magic happens. It provides us with two critical functions: `tunnel` (hosting/server) and `access` (connection to host / client).
 
-## Modpacks
-- For modpack makers, you can enable auto-download of Cloudflared. This works for Windows and MacOS users, however not for linux users.
+## 👋 Manually
+If for some reason Cloudflared wasn't downloaded onto your system automatically, you are going to need to **[download and install Cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)** manually.
 
-To enable auto-download, locate mods config file `cloudflared.cfg`. Inside it, you'll find "local install" category:
-```
-"local install" {
-    # Should the mod attempt auto-download Cloudflared?
-    # Generally not recommended, but is available for Windows and MacOS. [default: false]
-    B:"Auto-Download Cloudflared"=false
-
-    # Which file should be used for executing commands? [default: cloudflared]
-    S:"Cloudflared Executable"=cloudflared
-}
-```
-
-Inside here, you can see `Auto-Download Cloudflared` being set to `false`. Set it to `true` to allow the mod to automagically try installing cloudflared.
-It is not guaranteed that the service will install. If it does, you may see UAC prompt for the cloudflared installer. This is normal.
+Locate the correct installation of the software for your OS, download it and put into `.minecraft/asm/Cloudflared/` with name of `cloudflared` (or `cloudflared.exe` on Windows).
