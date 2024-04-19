@@ -62,9 +62,15 @@ const config: Config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'apiSidebar',
             position: 'left',
             label: 'Modding Docs',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutSidebar',
+            position: 'left',
+            label: 'User Tutorials',
           },
           {
             href: 'https://github.com/dragon-forge',
@@ -116,6 +122,10 @@ const config: Config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/dragon-forge',
+              },
+              {
+                label: 'User Docs',
+                to: '/udocs/',
               },
             ],
           },

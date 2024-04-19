@@ -28,7 +28,7 @@ The most important attributes for said definitions are:
 - `soundType`, and is accessed by `PartDefinition.getSoundType(PartEntity entity)`
 - `survivesInWater`, and is accessed by `PartDefinition.canSurviveInWater(PartEntity entity)`
 - `model` - this field is responsible for storing all model visual properties like its particle sprite(s) and sub-models that must be loaded in.
-- `tintIndexCount` - the amount of tint indices used up by this part. Useful for things like wires that may need to be tinted according to their redstone signal strength. [This is explained in a separate page](/docs/hammermultipart/advanced/tint).
+- `tintIndexCount` - the amount of tint indices used up by this part. Useful for things like wires that may need to be tinted according to their redstone signal strength. [This is explained in a separate page](/docs/api/hammermultipart/advanced/tint).
 - `cloneItem` - provides the `ItemStack` which is going to get cloned whenever player performs middle-click while having the part selected.
 
 If your part is a wrapper for an existing block, take a look into `Optional<PlacedPartConfiguration> convertBlockToPart(Level level, BlockPos pos, BlockState state)`:

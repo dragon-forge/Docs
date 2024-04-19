@@ -157,7 +157,7 @@ public class MyTile
 }
 ```
 :::tip
-`TileSyncableTickable` and `TileSyncable` both use [NBTSerializationHelper](/docs/hammerlib/advanced/nbt_serialization) for reading&writing data.
+`TileSyncableTickable` and `TileSyncable` both use [NBTSerializationHelper](/docs/api/hammerlib/advanced/nbt_serialization) for reading&writing data.
 
 Instead of writing `saveAdditional(CompoundTag nbt)` and `load(CompoundTag nbt)` methods, you can put an annotation onto the animation system field:
 ```java
@@ -170,7 +170,7 @@ Now our tile is set up with animation system and is ready to run all of your won
 
 ## ⏯️ Playing animations
 
-Now that we have our animation system, as well as [animations](/docs/hammeranims/animations/registration#-getting-animations-from-container), they can be started in a multitude of ways.
+Now that we have our animation system, as well as [animations](/docs/api/hammeranims/animations/registration#-getting-animations-from-container), they can be started in a multitude of ways.
 
 We're going to be starting them via `startAnimationAt(String layer, ConfiguredAnimation|IAnimationSource animation)` method.
 ```java
@@ -184,4 +184,4 @@ If we'd like to restart or configure the animation, you're going to need to conf
 ```java
 animations.startAnimationAt(CommonLayerNames.AMBIENT, ModAnimations.YOUR_ANIMATION_IDLE.configure());
 ```
-There are a few calls that could be chained after `.configure()`, you can [see them here](/docs/hammeranims/animations/configured_animation#%EF%B8%8F-settings).
+There are a few calls that could be chained after `.configure()`, you can [see them here](/docs/api/hammeranims/animations/configured_animation#%EF%B8%8F-settings).

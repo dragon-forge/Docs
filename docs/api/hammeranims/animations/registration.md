@@ -14,7 +14,7 @@ To register a given animation container into the game, HammerAnimation provides 
 Each element of said registry is an instance of `org.zeith.hammeranims.api.animation.IAnimationContainer`.
 
 :::tip
-HammerLib already provides us with a simple content registration pipeline (see [Content Registration](/docs/hammeranims/animations/configured_animation#%EF%B8%8F-settings))
+HammerLib already provides us with a simple content registration pipeline (see [`Content Registration`](/docs/api/hammerlib/basics/content_registration))
 
 This is what we're going to use to get animations registered properly and easily.
 :::

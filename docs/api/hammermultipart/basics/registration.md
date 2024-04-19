@@ -8,7 +8,7 @@ Every part has a `PartDefinition` that must be registered.
 HammerMultipart provides a registry for said definitions, but not `PartEntity` classes (they don't need any registration)
 
 :::tip
-HammerLib already provides us with a simple content registration pipeline (see [Content Registration](/docs/hammeranims/animations/configured_animation#%EF%B8%8F-settings))
+HammerLib already provides us with a simple content registration pipeline (see [`Content Registration`](/docs/api/hammeranims/animations/configured_animation#%EF%B8%8F-settings))
 
 This is what we're going to use to get animations registered properly and easily.
 :::

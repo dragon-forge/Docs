@@ -249,4 +249,4 @@ public class PartEntityFloorButton
 }
 ```
 
-You can see us using the `@NBTSerializable` here. It's for ease of use to write serialization easier. [You can read about how it works here](/docs/hammerlib/advanced/nbt_serialization)!
+You can see us using the `@NBTSerializable` here. It's for ease of use to write serialization easier. [You can read about how it works here](/docs/api/hammerlib/advanced/nbt_serialization)!
