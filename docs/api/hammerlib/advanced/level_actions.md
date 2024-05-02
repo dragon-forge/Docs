@@ -240,7 +240,7 @@ public CompoundTag write(Level level)
 
 Action types are factories for creating (reading) action instances from NBT into runtime.
 
-Let's continue our example above and write a type for it! *(I prefer keeping the types inside instances for easier readability, but feel free to make it any way you like!)*
+Let's continue our example above and write a type for it!
 
 First off we need a custom constructor for `ParticleAction` to read from NBT:
 ```java
@@ -251,18 +251,9 @@ public ParticleAction(ILevelActionType type, Level level, CompoundTag tag)
 }
 ```
 
+After that specific constructor is complete, we may now create a new action type:
 ```java
-ILevelActionType TYPE = new ILevelActionType()
-{
-    @Override
-    public LevelAction read(Level level, CompoundTag tag)
-    {
-        var id = tag.getUUID("Player");
-        ParticleAction action = new ParticleAction(this, id);
-        action.isPlayerDead = tag.getBoolean("IsDead");
-        return action;
-    }
-};
+ILevelActionType CONTINUOUS_PARTICLES = ILevelActionType.simple(ParticleAction::new);
 ```
 
 And obviously it must be registered, I recommend using [@SimplyRegister](/docs/api/hammerlib/basics/content_registration) and creating a new interface `ModLevelActionTypes`.
@@ -276,27 +267,9 @@ import org.zeith.hammerlib.annotations.*;
 public interface ModLevelActionTypes
 {
 	@RegistryName("continuous_particles")
-	ILevelActionType CONTINUOUS_PARTICLES = new ILevelActionType()
-	{
-		@Override
-		public LevelAction read(Level level, CompoundTag tag)
-		{
-			return new ParticleAction(this, level, tag);
-		}
-	};
+	ILevelActionType CONTINUOUS_PARTICLES = ILevelActionType.simple(ParticleAction::new);
 }
 ```
-
-### 👀 Upcoming
-
-Instead of having to create new instances of ILevelActionType as separate classes,  starting from .28 builds HammerLib will have `ILevelActionType.simple`, which is going to simplify the above code into:
-
-```java
-@RegistryName("continuous_particles")
-ILevelActionType CONTINUOUS_PARTICLES = ILevelActionType.simple(ParticleAction::new);
-```
-
-Notice how we got rid of the annonymous class altogether and replaced it with lambda.
 
 ### 🗺️ The complete example
 
