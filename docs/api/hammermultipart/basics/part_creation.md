@@ -103,7 +103,7 @@ This creates our definition, adds the models and particles into registrar, and d
 
 ## 🐧 PartEntity
 Now that our PartDefinition is ready, we can finally make the PartEntity.
-It's a bit more complex, involving quite a few methods to maie it work, but should be manageable!
+It's a bit more complex, involving quite a few methods to make it work, but should be manageable!
 ```java
 package com.yourname.yourmod.impl.parts.entities;
 
@@ -134,6 +134,10 @@ import java.util.function.Function;
 
 public class PartEntityFloorButton
         extends PartEntity
+
+        implements ITickingPartEntity
+//                         ^  this is required for ticking parts.
+//  If your part doesn't need ticking code, do not add this interface to save on tick costs.
 {
     @NBTSerializable("PressTime")
     public int pressTimeLeft;

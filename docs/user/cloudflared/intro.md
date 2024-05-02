@@ -17,6 +17,10 @@ This mod is a bridge between Cloudflared technology and Minecraft, allowing play
 
 When adding a server to the server list (or via direct connection), the address starting with cloudflared:// will create a tunnel connection between you and the host, letting you connect without any port-forwarding.
 
+### ✨ Demonstration
+Here's a demo clip of how the mod is supposed to function:
+<div style={{"width": "100%", "padding-bottom": "56.25%", "position": "relative"}}><iframe loading="lazy" style={{"width": "100%", "height": "100%", "position": "absolute"}} src="https://www.youtube.com/embed/PqiDtyWiJcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 ## 🖥️ Does it work on dedicated?
 
 Yes, the mod does indeed function on dedicated servers! However, make sure the server cloudflared binaries are downloaded and executed properly.
