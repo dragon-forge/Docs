@@ -3,9 +3,6 @@ sidebar_position: 2
 ---
 
 # 🌐 Level Actions
-:::warning
-This feature is available from 1.20.1 and above.
-:::
 
 Defering an action to be executed later on the server can be a bit tricky. Let alone making sure it happens even between world reloads, or even game restarts.
 
