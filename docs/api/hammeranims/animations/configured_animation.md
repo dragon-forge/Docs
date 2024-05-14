@@ -34,9 +34,10 @@ These are all functions that may be adjusted to your liking on any animation.
 ### 🎭 SerializableMask
 This class allows excluding bones from animation, or adjusting weights for individual bones.
 
-To create a mask, call `Serializ`
+To create a mask, call `SerializableMask.builder()` to create a new instance of a builder.
+After you're done configuring the builder, call `.build()`
 
-There are a few methods to create a mask:
+There are a few methods to configure a mask through a builder:
 - `exclude(String bone)` - Excludes passed bone from being animated.
 - `excludeAll(String... bones)` - Excludes passed in bones from being animated.
 - `excludes(Collection<? extends String> excludes)` - Excludes passed in bones from being animated.
