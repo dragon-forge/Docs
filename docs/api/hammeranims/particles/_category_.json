@@ -1,0 +1,8 @@
+{
+  "label": "✨ Particles",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Bedrock particle support encased in a handy package."
+  }
+}

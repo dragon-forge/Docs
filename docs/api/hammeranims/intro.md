@@ -38,12 +38,12 @@ In here you are going to add two dependencies:
 
 ```gradle
 dependencies {
-    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.76")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.25")
+    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.81")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.31")
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.76` with latest HammerLib version for given version, and `19.2.25` with the latest HammerAnimations version.**
+**Make sure to replace the `1.19.2` with your game version, `19.3.81` with latest HammerLib version for given version, and `19.2.31` with the latest HammerAnimations version.**
 
 After this, refresh your project in IDE of your choice.
 
@@ -55,12 +55,12 @@ Add this piece of code to your `mods.toml`:
 [[dependencies.mod_id]]
     modId="hammeranims"
     mandatory=true
-    versionRange="[19.2.25,)"
+    versionRange="[19.2.31,)"
     ordering="NONE"
     side="BOTH"
 ```
 
-Be sure to replace the `19.2.25` with the actual minimal version you require to run your mod.
+Be sure to replace the `19.2.31` with the actual minimal version you require to run your mod.
 
 ## 1.12.2
 
@@ -87,8 +87,8 @@ In here you are going to add two dependencies:
 
 ```gradle
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.49"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.25:deobf"
+    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50"
+    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.31:deobf"
 }
 ```
 
@@ -121,8 +121,8 @@ In here you are going to add two dependencies:
 
 ```gradle
 dependencies {
-    // implementation "org.zeith.HammerLib:HammerLib-1.12.2:12.2.49" // this is remapped already to stable_39.
-    implementation fg.deobf("curse.maven:hammer-lib-247401:5115160") // this is not remmaped, and fg.deobf will do that
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.25")
+    implementation "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50:deobf" // this is remapped already to stable_39.
+    // implementation fg.deobf("org.zeith.HammerLib:HammerLib-1.12.2:12.2.50") // this is remapped already to stable_39.
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.31")
 }
 ```

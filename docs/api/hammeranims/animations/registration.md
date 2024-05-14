@@ -14,7 +14,7 @@ To register a given animation container into the game, HammerAnimation provides 
 Each element of said registry is an instance of `org.zeith.hammeranims.api.animation.IAnimationContainer`.
 
 :::tip
-HammerLib already provides us with a simple content registration pipeline (see [`Content Registration`](/docs/api/hammerlib/basics/content_registration))
+HammerLib already provides us with a simple content registration pipeline (see [`📝 Content Registration`](/docs/api/hammerlib/basics/content_registration))
 
 This is what we're going to use to get animations registered properly and easily.
 :::
@@ -59,7 +59,7 @@ They are generally stored in `/assets/yourmod/bedrock/animations/` folder.
 
 Thus, the animation from our example should be located at `/assets/yourmod/bedrock/animations/your_animation.animation.json`.
 :::tip
-If you don't want to simplify the `.animation.json` suffix to just `.json`, replace `IAnimationContainer.create()` call with `IAnimationContainer.createNoSuffix()`
+If you want to simplify the `.animation.json` suffix to just `.json`, replace `IAnimationContainer.create()` call with `IAnimationContainer.createNoSuffix()`
 :::
 
 ## 📤 Getting animations from container

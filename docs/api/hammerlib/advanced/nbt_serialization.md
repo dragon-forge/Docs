@@ -97,21 +97,25 @@ public class ItemStackSerializer
 
 ### 📦 Out-of-box serializers
 HammerLib provides a wide support of Minecraft's objects to be serialized.
-As of HammerLib 19.3.76 (1.19.2), the list of supported objects are:
+As of HammerLib 19.3.81 (1.19.2), the list of supported objects are:
 - All Java primitive types (both primitive and wrapped) (both `int` and `Integer`)
 - byte[]
 - int[]
 - long[]
 - BlockPos
+- ChunkPos
+- GlobalPos
 - BlockState
 - Component
 - FluidStack
-- GlobalPos
+- FluidIngredient
+- FluidIngredientStack
 - ItemStack
 - BigInteger
 - BigDecimal
 - ParticleOptions
 - ResourceLocation
+- ResourceKey\<?\>
 - String
 - UUID
 - Vec3
