@@ -31,7 +31,7 @@ These are all functions that may be adjusted to your liking on any animation.
 - `onFinish(AnimationActionInstance action)` - Adds an action that will be ran once this animation is complete.
 - `next(ConfiguredAnimation next)` - Specifies the next animation to start after this one is complete. Does not work with looping animations!
 
-### ⚙️ SerializableMask
+### 🎭 SerializableMask
 This class allows excluding bones from animation, or adjusting weights for individual bones.
 
 To create a mask, call `Serializ`
