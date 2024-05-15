@@ -93,6 +93,10 @@ const config: Config = {
                 label: 'HammerAnimations',
                 to: '/docs/api/hammeranims/intro',
               },
+              {
+                label: 'HammerMultipart',
+                to: '/docs/api/hammermultipart/intro',
+              },
             ],
           },
           {

@@ -19,11 +19,22 @@ There is a `"components"` JSON object inside every effect that describes its beh
 			...
 		}
 ```
-Here we have a component`minecraft:emitter_lifetime_once`, which has active time set to 1 second. The duration may be either a constant (as shown here), or an expression.
+Here we have a component `minecraft:emitter_lifetime_once`, which has active time set to 1 second. The duration may be either a constant (as shown here), or an expression.
 
 Now, asides vanilla components, HammerAnimation offers a bit on top!
 
-## 🎆 Particle sub-emitter
+## 🧋 Vanilla modifications
+Although vanilla particle components are nice, they are lacking some things one would expect them to have.
+
+Here is a rundown of tweaks that HammerAnimations changes with vanilla components:
+
+1. `minecraft:particle_expire_if_in_blocks` and `minecraft:particle_expire_if_not_in_blocks` (since v33)
+   - Supports block tags. To specify a tag instead of block, simply put `#` at the start of the id. (Example: `#minecraft:logs`)
+
+## 📰 Custom components
+This is a list of additional particle components provided by HammerAnimations!
+
+### 🎆 Particle sub-emitter
 - Component ID: `hammeranims:particle_expiry_sub_emitter`
 
 This component will create a new emitter by the ID upon particle expiry.

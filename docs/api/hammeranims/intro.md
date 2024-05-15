@@ -39,11 +39,11 @@ In here you are going to add two dependencies:
 ```gradle
 dependencies {
     implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.81")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.32")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.33")
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.81` with latest HammerLib version for given version, and `19.2.32` with the latest HammerAnimations version.**
+**Make sure to replace the `1.19.2` with your game version, `19.3.81` with latest HammerLib version for given version, and `19.2.33` with the latest HammerAnimations version.**
 
 After this, refresh your project in IDE of your choice.
 
@@ -55,12 +55,12 @@ Add this piece of code to your `mods.toml`:
 [[dependencies.mod_id]]
     modId="hammeranims"
     mandatory=true
-    versionRange="[19.2.32,)"
+    versionRange="[19.2.33,)"
     ordering="NONE"
     side="BOTH"
 ```
 
-Be sure to replace the `19.2.32` with the actual minimal version you require to run your mod.
+Be sure to replace the `19.2.33` with the actual minimal version you require to run your mod.
 
 ## 1.12.2
 
@@ -88,7 +88,7 @@ In here you are going to add two dependencies:
 ```gradle
 dependencies {
     deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.32:deobf"
+    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.33:deobf"
 }
 ```
 
@@ -123,6 +123,6 @@ In here you are going to add two dependencies:
 dependencies {
     implementation "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50:deobf" // this is remapped already to stable_39.
     // implementation fg.deobf("org.zeith.HammerLib:HammerLib-1.12.2:12.2.50") // this is remapped already to stable_39.
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.32")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.33")
 }
 ```
