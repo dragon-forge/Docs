@@ -178,15 +178,16 @@ You will have to implement `createBlockItem` method, which should return a new `
 HammerLib offers built-in tiles for two use cases:
 - Static block entity - `TileSyncable`
 - Ticking block entity - `TileSyncableTickable`
-  - :::info This will require a ticker method inside your `Block` class. 
-  ```java
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
-    {
-        return BlockAPI.ticker(pLevel);
-    }
-  ```
+  :::info This will require a ticker method inside your `Block` class. 
+    ```java
+      @Nullable
+      @Override
+      public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
+      {
+          return BlockAPI.ticker(pLevel);
+      }
+    ```
+  :::
 
 To create BlockEntityType\<?>, use `BlockAPI` from package `org.zeith.hammerlib.api.forge`.
 

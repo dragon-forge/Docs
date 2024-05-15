@@ -14,11 +14,19 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         {siteConfig.tagline.split("\n").map((ln, idx) => <p id={idx} className="hero__subtitle">{ln}</p>)}
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/api/intro">
-            Developer Knowledgebase
-          </Link>
+          <div className='all-main-buttons'>
+            <Link
+              className="button button--secondary button--lg main-pg-btn"
+              to="/docs/api/intro">
+              ⚙️ Developer Knowledgebase
+            </Link>
+
+            <Link
+              className="button button--secondary button--lg main-pg-btn"
+              to="/docs/category/cloudflared">
+              📚 User Knowledgebase
+            </Link>
+          </div>
         </div>
       </div>
     </header>
