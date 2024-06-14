@@ -2,6 +2,7 @@
 sidebar_position: 0
 title: ☁️ Getting Started
 ---
+import LatestModVersion, { getLatestMcVersion } from '@site/src/components/LatestModVersion';
 
 ![The introduction to adding HammerAnimations to your workspace.](https://assets.zeith.org/logos/hammer-animations.png)
 # Getting Started
@@ -16,7 +17,7 @@ The model type you are looking for is **Bedrock Entity**.
 
 Before using **HammerAnimations**, you should firstly add it to your workspace!
 
-## 1.19.2 and Above
+## 🦊 1.21 and Above
 
 Firstly, add my repository to your workspace.
 The `repositories` block should already be present in your `build.gradle`
@@ -36,31 +37,74 @@ repositories {
 After adding the repository, navigate to `dependencies` closure.
 In here you are going to add two dependencies:
 
+<LatestModVersion modrinthId="C7cTlgwS">
+<LatestModVersion modrinthId="PlkSuVtM" mcVersion={getLatestMcVersion('C7cTlgwS')} versionNotation="%HLVERSION%" mcNotation="%HLMCVERSION%" >
 ```gradle
 dependencies {
-    implementation fg.deobf("org.zeith.hammerlib:HammerLib-1.19.2:19.3.81")
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.19.2:19.2.33")
+    implementation "org.zeith.hammerlib:HammerLib-%HLMCVERSION%:%HLVERSION%"
+    implementation "org.zeith.hammeranims:HammerAnimations-%MCVERSION%:%VERSION%"
 }
 ```
 
-**Make sure to replace the `1.19.2` with your game version, `19.3.81` with latest HammerLib version for given version, and `19.2.33` with the latest HammerAnimations version.**
+**Make sure to replace the `%MCVERSION%` with your game version, `%HLVERSION%` with latest HammerLib version for given version, and `%VERSION%` with the latest HammerAnimations version.**
+</LatestModVersion>
+</LatestModVersion>
 
 After this, refresh your project in IDE of your choice.
 
 You should see HammerLib and HammerAnimations appear in your classpath.
 
-### mods.toml
-Add this piece of code to your `mods.toml`:
+### 🦊 neoforge.mods.toml
+Add this piece of code to your `neoforge.mods.toml`:
+<LatestModVersion modrinthId="C7cTlgwS">
 ```toml
 [[dependencies.mod_id]]
     modId="hammeranims"
     mandatory=true
-    versionRange="[19.2.33,)"
+    versionRange="[%VERSION%,)"
     ordering="NONE"
     side="BOTH"
 ```
 
-Be sure to replace the `19.2.33` with the actual minimal version you require to run your mod.
+Be sure to replace the `%VERSION%` with the actual minimal version you require to run your mod.
+</LatestModVersion>
+
+## 🔨 1.16.5, 1.19.2 and 1.20.1
+
+Firstly, add my repository to your workspace.
+The `repositories` block should already be present in your `build.gradle`
+
+```gradle
+repositories {
+    maven {
+        name = "Zeitheron Maven"
+        url = "https://maven.zeith.org/"
+        content {
+            includeGroupByRegex "org\\.zeith.*"
+        }
+    }
+}
+```
+
+After adding the repository, navigate to `dependencies` closure.
+In here you are going to add two dependencies:
+
+<LatestModVersion modrinthId="C7cTlgwS" mcVersion="1.20.1">
+<LatestModVersion modrinthId="PlkSuVtM" mcVersion="1.20.1" versionNotation="%HLVERSION%" mcNotation="%HLMCVERSION%" >
+```gradle
+dependencies {
+    implementation fg.deobf("org.zeith.hammerlib:HammerLib-%MCVERSION%:%HLVERSION%")
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-%MCVERSION%:%VERSION%")
+}
+```
+
+**Make sure to replace the `%MCVERSION%` with your game version, `%HLVERSION%` with latest HammerLib version for given version, and `%VERSION%` with the latest HammerAnimations version.**
+</LatestModVersion>
+</LatestModVersion>
+
+After this, refresh your project in IDE of your choice.
+
+You should see HammerLib and HammerAnimations appear in your classpath.
 
 ## 1.12.2
 
