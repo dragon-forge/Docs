@@ -129,12 +129,16 @@ repositories {
 After adding the repository, navigate to `dependencies` closure.
 In here you are going to add two dependencies:
 
+<LatestModVersion modrinthId="C7cTlgwS" mcVersion="1.12.2">
+<LatestModVersion modrinthId="PlkSuVtM" mcVersion="1.12.2" versionNotation="%HLVERSION%" mcNotation="%HLMCVERSION%" >
 ```gradle
 dependencies {
-    deobfCompile "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50"
-    deobfCompile "org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.33:deobf"
+    deobfCompile "org.zeith.HammerLib:HammerLib-%HLMCVERSION%:%HLVERSION%"
+    deobfCompile "org.zeith.hammeranims:HammerAnimations-%MCVERSION%:%VERSION%:deobf"
 }
 ```
+</LatestModVersion>
+</LatestModVersion>
 
 After this, run `gradle setupDecompWorkspace idea` for IntelliJ IDEA or `gradle setupDecompWorkspace eclipse` for Eclipse IDE.
 
@@ -163,10 +167,14 @@ repositories {
 After adding the repository, navigate to `dependencies` closure.
 In here you are going to add two dependencies:
 
+<LatestModVersion modrinthId="C7cTlgwS" mcVersion="1.12.2">
+<LatestModVersion modrinthId="PlkSuVtM" mcVersion="1.12.2" versionNotation="%HLVERSION%" mcNotation="%HLMCVERSION%" >
 ```gradle
 dependencies {
-    implementation "org.zeith.HammerLib:HammerLib-1.12.2:12.2.50:deobf" // this is remapped already to stable_39.
-    // implementation fg.deobf("org.zeith.HammerLib:HammerLib-1.12.2:12.2.50") // this is remapped already to stable_39.
-    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-1.12.2:12.2.33")
+    implementation "org.zeith.HammerLib:HammerLib-%HLMCVERSION%:%HLVERSION%:deobf" // this is remapped already to stable_39.
+    // implementation fg.deobf("org.zeith.HammerLib:HammerLib-%HLMCVERSION%:%HLVERSION%") // this is remapped already to stable_39.
+    implementation fg.deobf("org.zeith.hammeranims:HammerAnimations-%MCVERSION%:%VERSION%")
 }
 ```
+</LatestModVersion>
+</LatestModVersion>
