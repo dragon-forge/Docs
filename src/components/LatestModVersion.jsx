@@ -66,23 +66,30 @@ export default function LatestModVersion({ children, modrinthId, mcVersion, fbVe
         if (mdCache?.promos && mdCache?.lastRefresh && now - mdCache.lastRefresh < 5 * 60) {
             const promos = mdCache.promos;
             setLatest(extractLatest(promos, mcVersion, fbVersion));
-        } else axios.get(`https://api.modrinth.com/updates/${modrinthId}/forge_updates.json?neoforge=include`)
-            .then(resp => {
-                const promos = resp.data?.promos;
-                localStorage.setItem(cacheKey, JSON.stringify({
-                    lastRefresh: parseInt(Date.now() / 1000),
-                    promos: promos
-                }));
-                setLatest(extractLatest(promos, mcVersion, fbVersion));
-            })
-            .catch(err => console.log(err))
+        } else {
+            const promos = mdCache?.promos;
+            if(promos) setLatest(extractLatest(promos, mcVersion, fbVersion)); // Set the cached version so we don't see the "undefined" when updating
+
+            axios.get(`https://api.modrinth.com/updates/${modrinthId}/forge_updates.json?neoforge=include`)
+                .then(resp => {
+                    const promos = resp.data?.promos;
+                    localStorage.setItem(cacheKey, JSON.stringify({
+                        lastRefresh: parseInt(Date.now() / 1000),
+                        promos: promos
+                    }));
+                    setLatest(extractLatest(promos, mcVersion, fbVersion));
+                })
+                .catch(err => console.log(err))
+        }
     }, [modrinthId, mcVersion]);
 
-    if (!children) return latest?.ver
+    const latestVer = latest?.ver || (mcVersion ? mcVersion.substring(2) + ".1" : "0.0.0");
+
+    if (!children) return latestVer;
 
     const replaceVersionInText = (text) => {
-        return text.replaceAll(versionNotation, latest?.ver)
-            .replaceAll(mcNotation, latest?.mc);
+        return text.replaceAll(versionNotation, latestVer)
+            .replaceAll(mcNotation, latest?.mc || LATEST_MC_VERSION);
     };
 
     const processChildren = (children) => {
