@@ -34,6 +34,7 @@ The field may be serialized on one of these conditions:
 - The field is **non-final** and its type `T` has a linked `INBTSerializer<T>`.
 - The field is **non-final** and its type is any dimensional (`T[]`, `T[][]`, `T[][]` etc) array of a type has a linked `INBTSerializer<T>`.
 - The field is **non-final** and its type is any enum value, or null. (all enums are supported out of box)
+- The field is **non-final** and its type is any record class, or null. (all records are supported out of box, but every record component must also be serializable). You don't have to put `@NBTSerializable` for record components, however if you want to change a component name in its NBT tree, you must add `@NBTSerializable("SerializedName")` before the component declaration.
 
 A NBT tag compound will be created, storing each named field inside it, storing its respective tag type.
 
@@ -97,7 +98,7 @@ public class ItemStackSerializer
 
 ### 📦 Out-of-box serializers
 HammerLib provides a wide support of Minecraft's objects to be serialized.
-As of HammerLib 19.3.81 (1.19.2), the list of supported objects are:
+As of HammerLib 19.3.82 (1.19.2), the list of supported objects are:
 - All Java primitive types (both primitive and wrapped) (both `int` and `Integer`)
 - byte[]
 - int[]
