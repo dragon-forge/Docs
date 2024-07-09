@@ -21,7 +21,11 @@ You should now have Zeith's plugin repository added to your IDE.
 
 Now that you have set up the repository, press <HTTPButton text="Add Plugin to IDEA" url="http://localhost:63342/api/installPlugin?action=install&pluginId=org.zeith.hammerhelper"/> And head back to it.
 
-You might see a warning popup. Accept it and allow running.
+You might see a similar warning popup: 
+
+![Using REST API](/img/idea-rest-api.png)
+
+Click "Yes" to allow running.
 
 If that doesn't work, try searching for `HammerHelper` on Marketplace AFTER adding the plugin repository.
 
