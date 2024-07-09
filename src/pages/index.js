@@ -42,7 +42,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <center>
-          <img src="https://ref.zeith.org/images/species/main.webp" alt='Art of Zeitheron' />
+          <img src="/img/squash-bugs.webp" alt='Art of Zeitheron squashing pesky bugs' />
         </center>
       </main>
     </Layout>

@@ -23,7 +23,7 @@ Now that you have set up the repository, press <HTTPButton text="Add Plugin to I
 
 You might see a similar warning popup: 
 
-![Using REST API](/img/idea-rest-api.png)
+![Using REST API](/img/idea-rest-api.webp)
 
 Click "Yes" to allow running.
 
