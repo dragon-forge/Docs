@@ -12,6 +12,10 @@ Without them, it will be much harder to develop.
 
 Before using **anything here**, you should firstly add **HammerLib** to your workspace!
 
+:::info IDE Support
+If you're using IntelliJ IDEA, consider using [HammerHelper](./misc/hammerhelper) plugin!
+:::
+
 :::tip Or use the prepared mod template!
 You can use [this template](https://github.com/Zeitheron/NeoForgedModTemplate) for setting up workspace.
 Just select the branch that corresponds with the version that you want to develop, and use it as a template

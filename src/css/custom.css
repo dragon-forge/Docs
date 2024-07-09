@@ -38,3 +38,19 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+
+.http-button {
+  background-color: #aaffaa;
+  border-color: #227722;
+  transition: 0.5s ease-in-out;
+  color: black;
+  border-radius: 0.5em;
+  font-size: medium;
+}
+
+.http-button:hover {
+  background-color: #a1aa77;
+  border-color: #777122;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
