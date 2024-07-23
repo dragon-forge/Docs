@@ -35,6 +35,8 @@ Step-by-step guide on setting up your own tunnel:
 - Inside `URL`, type in `127.0.0.1:PORT`, and replace `PORT` with the actual port number. I recommend setting it to `25665` (yes, not `25565`!)
 - Click `Save hostname`
 
+The port you specified in your public hostname must match to your Minecraft server's port. (specified in `server.properties`)
+
 Now the tunnel should be ready to go.
 Let's tweak the mod's configurations to fit our needs...
 
