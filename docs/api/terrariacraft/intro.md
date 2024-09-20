@@ -6,7 +6,14 @@ title: 🌳 Getting started
 ![Getting your workspace ready.](https://assets.terrariacraft.com/media/header.webp)
 # Getting Started
 
-The best way to begin developing an addon to TerrariaCraft would be using the [Example Addon Template](https://github.com/TerrariaCraft/ExampleAddon) we offer.
+The best way to begin developing an addon to TerrariaCraft would be using the Creator Companion inside our launcher!
+
+<iframe loading="lazy" width="100%" style={{"aspect-ratio": "16 / 9"}} src="https://www.youtube.com/embed/RaivkDJC-h4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Alternate
+Alternatively, you can use [Example Addon Template](https://github.com/TerrariaCraft/ExampleAddon) to get started.
+
+You won't be able to develop for early access, though.
 
 ## 🐙 GitHub
 
