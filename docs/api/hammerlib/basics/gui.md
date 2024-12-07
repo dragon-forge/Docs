@@ -24,12 +24,12 @@ This root has a few special methods, which you might use when chain-building a s
 For this you will need three things:
 - `protected GuiRootObject scene;` field in your GUI class;
 - `this.scene = addRenderableWidget(<GuiRootObject goes here>);` inside `init()` method of your GUI;
-- `this.scene.sendUpdate();` inside the `tick()` or `containerTick()` (for AbstractContainerScreen instances)
+- `this.scene.sendUpdate();` inside the `tick()` (or `containerTick()` for AbstractContainerScreen instances)
 
 ### 📦 Object
 After you have made your root, you can start adding children to it. If you're looking to use stock objects provided by HammerLib, create a new object builder by using `GuiObject.create("NAME")`. Right now there are a few existing objects that you can use. Call one of these functions on the bulder:
 - `GuiObject empty()` - Returns an empty object (usually for inheritance purposes);
-- `GuiSlotLinkObject slot(Slot slot)` - Links the slot to the newly created `GuiSlotLinkObject`. You can offset/rotate/scale it however you'd like, the slow will be displayed where this link object will be;
+- `GuiSlotLinkObject slot(Slot slot)` - Links the slot to the newly created `GuiSlotLinkObject`. You can offset/rotate/scale it however you'd like, the slot will be displayed where this link object will be;
 - `GuiImageObject image(ResourceLocation tex, float uOffset, float vOffset, int width, int height, int txWidth, int txHeight)` - Blits an image where the object is located. You can specify the file's texture dimensions;
 - `GuiImageObject image(ResourceLocation tex, float uOffset, float vOffset, int width, int height)` - Blits an image where the object is located. This method uses default 256x256 texture dimensions;
 - `GuiTextObject text(Component text, int color, boolean shadow)` - Creates a label with desired text component, color and shadow;
