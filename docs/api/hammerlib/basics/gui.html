@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.2.1">
 <title data-rh="true">📺 Modular GUIs | Docs for Zeith&#x27;s mods.</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://ref.zeith.org/images/species/main.webp"><meta data-rh="true" name="twitter:image" content="https://ref.zeith.org/images/species/main.webp"><meta data-rh="true" property="og:url" content="https://docs.zeith.org/docs/api/hammerlib/basics/gui"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="📺 Modular GUIs | Docs for Zeith&#x27;s mods."><meta data-rh="true" name="description" content="[1.20.1+] Adding inheritance to GUIs."><meta data-rh="true" property="og:description" content="[1.20.1+] Adding inheritance to GUIs."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.zeith.org/docs/api/hammerlib/basics/gui"><link data-rh="true" rel="alternate" href="https://docs.zeith.org/docs/api/hammerlib/basics/gui" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.zeith.org/docs/api/hammerlib/basics/gui" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Docs for Zeith&#39;s mods. RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Docs for Zeith&#39;s mods. Atom Feed"><link rel="stylesheet" href="/assets/css/styles.a64a273c.css">
-<script src="/assets/js/runtime~main.0e1ce818.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.443ba6cb.js" defer="defer"></script>
 <script src="/assets/js/main.d07466de.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -28,13 +28,13 @@ For this you will need three things:</p>
 <ul>
 <li><code>protected GuiRootObject scene;</code> field in your GUI class;</li>
 <li><code>this.scene = addRenderableWidget(&lt;GuiRootObject goes here&gt;);</code> inside <code>init()</code> method of your GUI;</li>
-<li><code>this.scene.sendUpdate();</code> inside the <code>tick()</code> or <code>containerTick()</code> (for AbstractContainerScreen instances)</li>
+<li><code>this.scene.sendUpdate();</code> inside the <code>tick()</code> (or <code>containerTick()</code> for AbstractContainerScreen instances)</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-object">📦 Object<a href="#-object" class="hash-link" aria-label="Direct link to 📦 Object" title="Direct link to 📦 Object">​</a></h3>
 <p>After you have made your root, you can start adding children to it. If you&#x27;re looking to use stock objects provided by HammerLib, create a new object builder by using <code>GuiObject.create(&quot;NAME&quot;)</code>. Right now there are a few existing objects that you can use. Call one of these functions on the bulder:</p>
 <ul>
 <li><code>GuiObject empty()</code> - Returns an empty object (usually for inheritance purposes);</li>
-<li><code>GuiSlotLinkObject slot(Slot slot)</code> - Links the slot to the newly created <code>GuiSlotLinkObject</code>. You can offset/rotate/scale it however you&#x27;d like, the slow will be displayed where this link object will be;</li>
+<li><code>GuiSlotLinkObject slot(Slot slot)</code> - Links the slot to the newly created <code>GuiSlotLinkObject</code>. You can offset/rotate/scale it however you&#x27;d like, the slot will be displayed where this link object will be;</li>
 <li><code>GuiImageObject image(ResourceLocation tex, float uOffset, float vOffset, int width, int height, int txWidth, int txHeight)</code> - Blits an image where the object is located. You can specify the file&#x27;s texture dimensions;</li>
 <li><code>GuiImageObject image(ResourceLocation tex, float uOffset, float vOffset, int width, int height)</code> - Blits an image where the object is located. This method uses default 256x256 texture dimensions;</li>
 <li><code>GuiTextObject text(Component text, int color, boolean shadow)</code> - Creates a label with desired text component, color and shadow;</li>
