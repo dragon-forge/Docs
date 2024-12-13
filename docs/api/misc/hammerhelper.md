@@ -9,17 +9,11 @@ If you're on IntelliJ IDEA, consider using HammerHelper to assist with some comm
 
 ## Installation
 
-### Plugin Repo
-
-Before downloading the plugin, you must first add the plugin repository.
-
-Navigate to ⚙️ Settings → Plugins → ⚙️ → Manage Plugin Repositories... → ➕ → Enter the `https://maven.zeith.org/jetbrains.xml` into the text field.
-
-You should now have Zeith's plugin repository added to your IDE.
-
 ### Adding plugin
 
-Now that you have set up the repository, press <HTTPButton text="Add Plugin to IDEA" url="http://localhost:63342/api/installPlugin?action=install&pluginId=org.zeith.hammerhelper"/> And head back to it.
+Press <HTTPButton text="Add Plugin to IDEA" url="http://localhost:63342/api/installPlugin?action=install&pluginId=org.zeith.hammerhelper"/> And head back to IntelliJ IDEA.
+
+If this does not work for some reason, add the plugin manually from JetBrains Marketplace [HERE](https://plugins.jetbrains.com/plugin/26099-hammerhelper)!
 
 You might see a similar warning popup: 
 
@@ -39,11 +33,18 @@ You can disable them at any point.
 HammerLib inspection:
 - `@SimplyRegister(prefix = "")` prefix is checked against resource location path characters. (error)
 - `@SimplyRegister`-annotated classes should be interfaces instead. (weak warning)
+- `@SimplyRegister`-annotated classes should not contain anonymous classes. (error)
 - `@RegistryName("value")` values are checked against resource location path characters. (error)
 - `@RegistryName("value")` names are checked inside the same class for potential duplicate registry names. (error)
 - `Resources.location()` methods are eligible for resource path validation for \[a-z0-9/._-\] characters. (error)
 - `@RegistryName`-d Item constant missing model json file (weak warning)
 - `@RegistryName`-d Block constant missing block state json file (weak warning)
+- `@Ref` annotations are checked for invalid targets
+- `IPacket` classes are checked against a set of rules:
+  - Missing empty (no-data) packet constructor. (error)
+  - Anonymous packet class is not allowed. (error)
+  - Packet class does nothing. (warning)
+  - Some of the packet's fields are not serialized. (warning)
 
 ### Code completion
 When hitting `Ctrl`+`Space`, IDEA shows a code completion popup.
@@ -65,3 +66,8 @@ HammerAnimations references:
 ### Inspector suppression
 
 When using `@SimplyRegister` on a class which has at least one `@RegistryName` field, the `unused` inspection on class element will be suppressed, preventing the class and all `@RegistryName` fields from being marked as 'unused' (since they are registered into the game!)
+
+### Layered Icons
+
+- Classes annotated with `@SimplyRegister` will have squares around the class/interface class icon.
+- Classes implementing `IPacket` will have a plug drawn ontop of the class.
