@@ -21,7 +21,7 @@ You might see a similar warning popup:
 
 Click "Yes" to allow running.
 
-If that doesn't work, try searching for `HammerHelper` on Marketplace AFTER adding the plugin repository.
+If that doesn't work, try searching for `HammerHelper` on Marketplace manually.
 
 
 ## Feature Set
