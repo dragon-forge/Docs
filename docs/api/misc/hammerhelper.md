@@ -5,6 +5,7 @@ import HTTPButton from '@site/src/components/HTTPButton';
 
 # 🛠️ HammerHelper
 
+<iframe width="384px" height="240px" src="https://plugins.jetbrains.com/embeddable/card/26099" style={{backgroundColor: "#1b1b1d"}}/>
 If you're on IntelliJ IDEA, consider using HammerHelper to assist with some common code checks and inspections!
 
 ## Installation
@@ -40,6 +41,7 @@ HammerLib inspection:
 - `@RegistryName`-d Item constant missing model json file (weak warning)
 - `@RegistryName`-d Block constant missing block state json file (weak warning)
 - `@Ref` annotations are checked for invalid targets
+- `BaseCompat` Mod compatibility checking with `@LoadCompat` to ensure `compatType` matches the supertype.
 - `IPacket` classes are checked against a set of rules:
   - Missing empty (no-data) packet constructor. (error)
   - Anonymous packet class is not allowed. (error)
@@ -52,6 +54,7 @@ This section is all about new entries in this popup.
 
 HammerAnimations completion:
 - `@RegistryName`-d [IAnimationContainer](../hammeranims/animations/registration), [IGeometryContainer](../hammeranims/geometry/registration) and [IParticleContainer](../hammeranims/particles/registration) are code-completed from files in `/assets/modid/bedrock/` paths. This takes into account the `createNoSuffix` method calls, as well as prefixes provided but `@SimplyRegister` on the class. The code completion occurs inside the string literal of the annotation.
+- `@LoadCompat` - modid is autocompleted from all mod ids found in class path.
 
 ### Code references
 While holding `Ctrl` and hovering over elements of a class, you might see them as hyper-links, when clicking on which you see a file said elements are referenced from.
@@ -59,15 +62,22 @@ While holding `Ctrl` and hovering over elements of a class, you might see them a
 HammerLib references:
 - `@RegistryName`-d Item constants have the registry name string literal a reference to item model json file (if it exists)
 - `@RegistryName`-d Block constants have the registry name string literal a reference to block state map json file (if it exists)
+- `@LoadCompat` modid string literal can be a reference to mod class owning the modid (if it exists)
 
 HammerAnimations references:
 - `@RegistryName`-d [IAnimationContainer](../hammeranims/animations/registration), [IGeometryContainer](../hammeranims/geometry/registration) and [IParticleContainer](../hammeranims/particles/registration) constants have the registry name string literal a reference to their container json file (if it exists)
 
+Minecraft references:
+- Block states can reference model files and texture files.
+- Item and block models can reference parent model and texture files.
+
 ### Inspector suppression
 
-When using `@SimplyRegister` on a class which has at least one `@RegistryName` field, the `unused` inspection on class element will be suppressed, preventing the class and all `@RegistryName` fields from being marked as 'unused' (since they are registered into the game!)
+- When using `@SimplyRegister` on a class which has at least one `@RegistryName` field, the `unused` inspection on class element will be suppressed, preventing the class and all `@RegistryName` fields from being marked as 'unused' (since they are registered into the game!)
+- When adding `@LoadCompat` on a class, the `unused` inspection on the class element will be suppressed.
 
 ### Layered Icons
 
 - Classes annotated with `@SimplyRegister` will have squares around the class/interface class icon.
 - Classes implementing `IPacket` will have a plug drawn ontop of the class.
+- Classes annotated with `@LoadCompat` will have a plug drawn ontop of the class.
