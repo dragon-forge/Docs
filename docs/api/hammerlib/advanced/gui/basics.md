@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 0
 ---
 
-# 📺 Modular GUIs
-**[1.20.1+]** Adding inheritance to GUIs.
+# 🗃️ Modular GUIs
+Adding inheritance to GUIs.
 
 By using GuiObject as an object and a container for child GuiObjects you can create advanced GUIs which can be easily edited as well.
 HammerLib offers a Unity-like approach to constructing your GUI (GameObject alternative - GuiObject).
@@ -26,6 +26,9 @@ For this you will need three things:
 - `this.scene = addRenderableWidget(<GuiRootObject goes here>);` inside `init()` method of your GUI;
 - `this.scene.sendUpdate();` inside the `tick()` (or `containerTick()` for AbstractContainerScreen instances)
 
+**Alternatively...** Consider using `FlowguiScreen<T extends AbstractContainerMenu>` to get the flowgui integrated out-of-box.
+It is advised to use XML files for `FlowguiScreen`, but you may override `GuiRootObject createRoot(ResourceLocation id)` to create GUI in code.
+
 ### 📦 Object
 After you have made your root, you can start adding children to it. If you're looking to use stock objects provided by HammerLib, create a new object builder by using `GuiObject.create("NAME")`. Right now there are a few existing objects that you can use. Call one of these functions on the bulder:
 - `GuiObject empty()` - Returns an empty object (usually for inheritance purposes);
@@ -41,6 +44,22 @@ After you have made your root, you can start adding children to it. If you're lo
     - `.enabled(boolean enabled)` - Toggles the button enabled state;
     - `.packedFGColor(int packedFGColor)` - Changes the color for the button's label;
     - `.pressSound(Holder<SoundEvent> pressSound)` - Changes the sound played when clicking on the button;  (null for no sound)
+- `GuiSpriteButtonObject.SpriteButtonBuilder spriteButton()` - Similar to button, but with additional properties:
+    - `.customTexture(ResourceLocation texture)` - Provides a path to image with image of 3 vertically stacked sprites. Image's width and height will be used as dimensions for one sprite;
+    - `.color(Vec3 color)` - RGB tinting for the button;
+- `GuiEditBoxObject.EditBoxBuilder editBox()` - Creates an editable textbox wrapped into a gui component;
+    - `.canLoseFocus(boolean canLoseFocus)` - Allows/disallows the textbox to loose focus;
+    - `.bordered(boolean bordered)` - Changes the textbox border visibility;
+    - `.editable(boolean editable)` - Changes if the textbox is editable;
+    - `.responder(Consumer<String> responder)` - Callback for when the text contents change;
+    - `.filter(Predicate<String> validator)` - Filter to the input validation;
+    - `.suggestion(String suggestion)` - Sets a suggestion to be drawn in the input;
+    - `.hint(Component hint)` - Displays a hint when the text field is empty and not focused;
+    - `.formatter(BiFunction<String, Integer, FormattedCharSequence> textFormatter)` - Converts the input text with its cursor position into a renderable text component;
+    - `.textColor(int textColor)` - Changes the text color of the string; (Default is #e0e0e0)
+    - `.textColorUneditable(int textColor)` - Changes the text color of the string when the field is uneditable; (Default is #707070)
+    - `.maxLength(int length)` - Maximum number of characters allowed to be typed into the textbox;
+    - `.value(String value)` - Sets the default value inside the textbox;
 
 ### ⛓️‍💥 Inheritance
 Now that you have both the root and child objects, let's put things together.

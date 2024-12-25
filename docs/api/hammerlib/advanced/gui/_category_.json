@@ -1,0 +1,8 @@
+{
+  "label": "📺 Flow GUI",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "[1.20.1+] Guide to GUIs with HammerLib."
+  }
+}

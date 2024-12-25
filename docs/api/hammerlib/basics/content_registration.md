@@ -7,7 +7,7 @@ Here we go over how to registar stuff with HammerLib.
 
 In order to register your objects into the game, HammerLib offers annotation-based solution.
 
-## ❗ Peparations
+## ❗ Preparations
 
 Start by creating an `interface` class, which will store your objects-of-choice.
 This objects may be anything that needs to be registered into IForgeRegistries (or vanilla regitries)

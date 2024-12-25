@@ -38,15 +38,19 @@ HammerLib inspection:
 - `@RegistryName("value")` values are checked against resource location path characters. (error)
 - `@RegistryName("value")` names are checked inside the same class for potential duplicate registry names. (error)
 - `Resources.location()` methods are eligible for resource path validation for \[a-z0-9/._-\] characters. (error)
-- `@RegistryName`-d Item constant missing model json file (weak warning)
-- `@RegistryName`-d Block constant missing block state json file (weak warning)
-- `@Ref` annotations are checked for invalid targets
+- `@RegistryName`-d Item constant missing model json file. (weak warning)
+- `@RegistryName`-d Block constant missing block state json file. (weak warning)
+- `@Ref` annotations are checked for invalid targets.
 - `BaseCompat` Mod compatibility checking with `@LoadCompat` to ensure `compatType` matches the supertype.
 - `IPacket` classes are checked against a set of rules:
   - Missing empty (no-data) packet constructor. (error)
   - Anonymous packet class is not allowed. (error)
   - Packet class does nothing. (warning)
   - Some of the packet's fields are not serialized. (warning)
+- Flowgui XML inspection:
+  - Detection of missing properties for components.
+  - Invalid values passed into component properties.
+  - JS when attributes allow for JS execution with lambda prefix, shows as JS language on Ultimate edition.
 
 ### Code completion
 When hitting `Ctrl`+`Space`, IDEA shows a code completion popup.
@@ -55,6 +59,13 @@ This section is all about new entries in this popup.
 HammerAnimations completion:
 - `@RegistryName`-d [IAnimationContainer](../hammeranims/animations/registration), [IGeometryContainer](../hammeranims/geometry/registration) and [IParticleContainer](../hammeranims/particles/registration) are code-completed from files in `/assets/modid/bedrock/` paths. This takes into account the `createNoSuffix` method calls, as well as prefixes provided but `@SimplyRegister` on the class. The code completion occurs inside the string literal of the annotation.
 - `@LoadCompat` - modid is autocompleted from all mod ids found in class path.
+
+FlowGui completion:
+- `@XmlFlowgui` 'value' completion from resource assets dir (`/assets/modid/flowgui/`) with option to create a file if its missing;
+- Flowgui XML completion:
+  - `<com>`'s `class=` attribute is completed from all `GuiReader`s found in classpath, allowing for seamless integration of any mod adding any custom reader;
+  - Any component with defined class will complete with attributes declared in the `GuiReader` class with any restrictions applicable by annotations;
+    - Fields must be a static final String with `KEY_` as their prefix. Applicable annotations: `@AllowedValues(regex[])`, `@Default("value")` / `@Required("example")`, `@AllowJS`, `@FileReference(regex=regex[N], value=path[N])` (example in `FlowguiImageReader`)
 
 ### Code references
 While holding `Ctrl` and hovering over elements of a class, you might see them as hyper-links, when clicking on which you see a file said elements are referenced from.
