@@ -22,7 +22,7 @@ These are all functions that may be adjusted to your liking on any animation.
 - `reversed(boolean reverse)` and `reversed()` - Allows animation to play backwards. Useful in cases where the animation holds on last frame. Say, you pull the stick from the pocket and position it forwards. Instead of writing the reverse animation, you could just make the animation reversed and it is going to pull the stick back;
 - `transitionTime(float transitionTime)` and `transitionTime(Duration transitionTime)` - Configures how quickly this animation takes over the last active animation. Useful when items change and animations must be instantly swapped, then setting the transitionTime to 0 is the solution. The default value is `0.25F`;
 - `timeFunction(TimeFunctionInstance timeFunction)` - Changes how time flows on this animation. One example of this is animation time normalization, using `DefaultsHA.NORMALIZED_TIME.of(float time)` function, which will make the animation duration fixed, thus speeding/slowing it up/down depending on its original duration;
-- `mask(SerializableMask mask)` - Applies a mask to this animation. See [`⚙️ SerializableMask`](#️-serializablemask);
+- `mask(SerializableMask mask)` - Applies a mask to this animation. See [`⚙️ SerializableMask`](#-serializablemask);
 - `loopMode(LoopMode loopMode)` - Overrides the animation loop mode. Has 3 values:
   - `LoopMode.ONCE` - Shows the first frame after the animation was completed;
   - `LoopMode.HOLD_ON_LAST_FRAME` - Holds on last frame after the animation was completed;

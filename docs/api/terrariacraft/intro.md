@@ -31,7 +31,7 @@ I strongly recommend [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?se
 
 IntelliJ IDEA comes with support for custom plugins. Since TerrariaCraft is built with HammerLib and HammerAnimations, you should consider installing [HammerHelper](../misc/hammerhelper) before doing anything else.
 
-After that, click on Main Menu button (`Alt`+`\`), there will be `Git` tab. At the bottom of the list, see `Clone...` option; Click that and paste the `.git` URL you copied in the [GitHub](#github) step and create an empty directory where the contents of your project will be put into.
+After that, click on Main Menu button (`Alt`+`\`), there will be `Git` tab. At the bottom of the list, see `Clone...` option; Click that and paste the `.git` URL you copied in the [GitHub](#-github) step and create an empty directory where the contents of your project will be put into.
 
 Now click `Clone` to... Clone the repository.
 
