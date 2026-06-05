@@ -11,6 +11,52 @@ If you don't need to store much information, you can just use an empty default `
 
 If you want to create custom action instance for storing data, you will need to override `AnimationAction.createInstance` method to return a new unconfigured instance of your action.
 
+## ↩️ Built-in actions
+
+HammerAnimations comes with a single animation action out-of-box: `MethodAnimAction`.
+
+This function allows performing data-driven, serialized method calls on animation completion, allowing invocation of methods through reflection.
+:::danger Important!
+You must annotate the target method that should be called with `@ExposedToAnimAction`, otherwise it will not receive the invocation.
+:::
+
+To create the instance of this action, call `MethodAnimAction.create(@NotNull Class<?> owner, @NotNull String methodName, @Nullable Object instance, Object... args)`.
+
+Now, for static methods, the `instance` object should be null. For instance methods, you should only use the animated object instance only.
+
+You can pass arguments that would comply with [NBTSerializationHelper](/docs/api/hammerlib/advanced/nbt_serialization) serialization mechanism **plus** these types from the animated object (which should be passed as `null`):
+- `AnimationLayer` - the layer on which the action has been called from;
+- `AnimationSystem` - the animation system which the action has been called from;
+- `IAnimatedObject` (you can specify your overriden class, as long as it matches the caller) - the owner of the animation system, on which the action has been invoked;
+- `World` (1.12.2) / `Level` (1.20.1+) - the world where the action has been called;
+All other objects must be serializable one way or another through [NBTSerializationHelper](/docs/api/hammerlib/advanced/nbt_serialization). You may pass several default types, check the [📦 Out-of-box serializers](/docs/api/hammerlib/advanced/nbt_serialization#-out-of-box-serializers) for what may be passed by default.
+
+Here is a complete example for a `BlockEntity`:
+```java
+@ExposedToAnimAction
+public void testCall(BlockPos newPos)
+{
+	HammerAnimations.LOG.info("[{}] testCall() called @ {}", level.isClientSide ? "CLIENT" : "SERVER", newPos);
+}
+
+@Override
+public void update()
+{
+	super.update();
+	animations.tick();
+	setChanged();
+	
+	if(level.getBestNeighborSignal(worldPosition) > 0)
+	{
+		animations.startAnimationAt(CommonLayerNames.LEGS, MyAnimations.EXAMPLE_ANIMATION
+			.configure()
+			.loopMode(LoopMode.ONCE) // Force the animation to finish regardless of its initial options.
+			.onFinish(MethodAnimAction.create(getClass(), "testCall", this, new BlockPos(1, 2, 3)))
+		);
+	}
+}
+```
+
 ## ☕ Registration (Java)
 
 ### ⌨️ ModAnimations Class

@@ -65,3 +65,21 @@ public class RenderEntityBilly
 	}
 }
 ```
+
+:::warning Notice!
+Don't forget to add a head look layer inside the `setupSystem`!
+
+Something like...
+
+```java
+@Override
+public void setupSystem(AnimationSystem.Builder builder)
+{
+	builder.geometry(ContainersHA.BILLY_GEOM);
+	builder.addHeadLookLayer().addLayers(
+		AnimationLayer.builder(CommonLayerNames.AMBIENT),
+		AnimationLayer.builder(CommonLayerNames.LEGS)
+	);
+}
+```
+:::

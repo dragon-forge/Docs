@@ -30,7 +30,12 @@ Each animation layer stores active animation, while also having some configurati
 
 To create and store a new instance of `AnimationSystem` for your object, create it as following:
 ```java
-protected final AnimationSystem animations = AnimationSystem.create(this);
+protected final AnimationSystem animations;
+
+public MyAnimatedObject(...) {
+    super(...);
+    this.animations = AnimationSystem.create(this);
+}
 ```
 
 To update your newly created system, you must update it every game tick.
@@ -50,12 +55,21 @@ To configure the animation system, our object must override `setupSystem` method
 ### 🧱 AnimationSystem.Builder
 Defaults:
 - canSync: true
-- autoSync: false
+- autoSync: true
+- syncTime: false
+- defaultUseNanoTime: true
+- geometry: none
 
 AnimationSystem.Builder has the following methods:
 - `disableSync()` - completely disable all synchronization of this AnimationSystem;
-- `autoSync(boolean autoSync)` - toggle if animation system should sync to clients when animation on any given layer changes. Does not matter when `disableSync()` is called;
 - `addLayers(AnimationLayer.Builder... layers)` - register multiple animation layers into the system;
+- `addHeadLookLayer()` - Used for entites that have a head, adds minecraft head rotation element to the animation system for you;
+- `geometry(IGeometryContainer geo)` - Used in bone position calculations that are provided by default methods inside `IAnimatedObject`;
+- **Deprecated methods:** 
+  - `syncTime(boolean syncTime)` - toggles if the animation time should be synchronized;
+  - `autoSync(boolean autoSync)` - toggle if animation system should sync to clients when animation on any given layer changes. Does not matter when `disableSync()` is called;
+  - `canSync(boolean canSync)` - toggle if the animation system can perform any sort of sync;
+  - `defaultUseNanoTime(boolean defaultUseNanoTime)` - toggle if the animation system should use nanosecond time. Enabled by default since it eliminates visual stutters that happened with tick-based approach;
 
 ### 🧱 AnimationLayer.Builder
 AnimationLayer.Builder is created with `AnimationLayer.builder(String name)` method
@@ -64,23 +78,30 @@ It is recommended to use layer names provided by `CommonLayerNames` when possibl
 :::
 
 Defaults:
-- query: new Query()
+- query: global query instance (One instance per animation system, provided by `IAnimatedObject.createQuery()`)
 - mask: none (permit all bone transforms)
 - weight: 1
 - blendMode: ADD
 - allowAutoSync: true
 - persistent: true
+- useNanoTime: inherited from AnimationSystem
+- defaultTransitionTime: 0.25 seconds
+- initialAnimation: none
 
 AnimationLayer.Builder provides following methods:
 - `query(Query query)` - used for providing additional information to animations using formulas;
 - `mask(ILayerMask mask)` - restricts animations playing on this layer based on a bone name predicate;
-- `weight(float weight)` - adjusts the weight of all animations played on this layer;
+- `weight(float weight)` - adjusts the weight of all animations played on this layer in range of `[0; 1]`. This value gets multiplied by the weight of invidual animation for a final weight result;
 - `blendMode(BlendMode blendMode)` - changes how animation from this layer blends with all layers prior to current one; The options for blending are:
-  - `BlendMode.OVERRIDE` - Replace bone transforms from previous layer (this also counts weights from both layer and animation, lerping the transforms) with this layer. Affects only those bones which are currently being animated.
-  - `BlendMode.ADD` (default) - Adds the bone transforms on top of all previous layers. This is generally the recommended behavior to use.
-  - `BlendMode.SUBTRACT` - Subtracts the bone transforms. This is kind of like setting negative weight to the layer. More of a proof of concept, but may be useful to some.
-- `allowAutoSync(boolean allowAutoSync)` and `preventAutoSync()` - determines if this layer should cause animation system to sync when a different animation is started on this layer. Only matters if the AnimationSystem owning this layer has synchronization AND auto-sync enabled
-- `persistent(boolean persistent)` and `nonPersistent()` - determines if the animation layer should be stored to disk. This also prevents it from being synchronized when the animation system performs sync.
+  - `BlendMode.OVERRIDE` - Replace bone transforms from previous layer (this also counts weights from both layer and animation, lerping the transforms) with this layer. Affects only those bones which are currently being animated;
+  - `BlendMode.ADD` (default) - Adds the bone transforms on top of all previous layers. This is generally the recommended behavior to use;
+  - `BlendMode.SUBTRACT` - Subtracts the bone transforms. This is kind of like setting negative weight to the layer. More of a proof of concept, but may be useful to some;
+- `allowAutoSync(boolean allowAutoSync)` and `preventAutoSync()` - determines if this layer should cause animation system to sync when a different animation is started on this layer. Only matters if the AnimationSystem owning this layer has synchronization AND auto-sync enabled;
+- `persistent(boolean persistent)` and `nonPersistent()` - determines if the animation layer should be stored to disk. This also prevents it from being synchronized when the animation system performs sync;
+- `query(Query q)` and `defaultQuery(Query q)` - set the query object (or the default one, if none are provided) for this animation layer. `defaultQuery` gets called by AnimationSystem's build event, when assigning the global query instance created from `IAnimatedObject`;
+- `useNanoTime(boolean useNanoTime)` - toggle if this layer should use nano time or the tick-based approach;
+- `defaultTransitionTime(float defaultTransitionTime)` - changes the default transition time for the animations that have been started with `IAnimationSource` interface instead of `ConfiguredAnimation`;
+- `initialAnimation(IAnimationSource initialAnimation)` or `initialAnimation(ConfiguredAnimation initialAnimation)` - set the starting animation on this layer to be displayed as soon as the animation system constructs. Can be used to setup spawn animations;
 
 ### ☕ Writing `setupSystem`
 Here is an example of animation system which has unsynced ambient layer, as well as synced action layer:
@@ -130,8 +151,8 @@ public class MyTile
     public void setupSystem(AnimationSystem.Builder builder)
     {
         builder.addLayers(
-                AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
-                AnimationLayer.builder(CommonLayerNames.ACTION)
+            AnimationLayer.builder(CommonLayerNames.AMBIENT).preventAutoSync(),
+            AnimationLayer.builder(CommonLayerNames.ACTION)
         ).autoSync();
     }
     
@@ -176,7 +197,7 @@ We're going to be starting them via `startAnimationAt(String layer, ConfiguredAn
 ```java
 animations.startAnimationAt(CommonLayerNames.AMBIENT, ModAnimations.YOUR_ANIMATION_IDLE);
 ```
-This is going to start the idle animation on the `AnimationSystem` (you can put it into tick function).
+This is going to start the idle animation on the `AnimationSystem` (you can put it into tick function), using default transition time for that layer.
 
 The animation itself will not restart unless it is a different animation from currently running animation, or the ConfiguredAnimation has `important` flag set to true.
 
