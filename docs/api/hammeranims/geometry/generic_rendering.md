@@ -30,7 +30,8 @@ This is an abstract class that varies between version of the game, but maintans 
 
 - Generally speaking, you must have a final instance of `RenderData` in your renderer (be it entity renderer, tile renderer, item renderer etc).
 - Before rendering a model, you must call `RenderData.apply` to set the mandatory fields of the data.
-   - In this method you can pass in an array of IVertexOperator, letting you precisely alter the vertices.
+   - In this method you can pass in an array of `IVertexOperator`, letting you precisely alter the vertices;
+   - The second argument you pass should be `ISplitVertexConsumer`, piping several render types to the renderer;
 - After you have both `IGeometricModel` and `RenderData` ready, in your render code, call `IGeometricModel.renderModel(RenderData)` to perform the render operation.
 
 ## 🔧 IVertexOperator
